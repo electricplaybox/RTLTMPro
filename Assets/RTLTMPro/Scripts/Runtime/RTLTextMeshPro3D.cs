@@ -94,6 +94,16 @@ namespace RTLTMPro
 
         protected readonly FastStringBuilder finalText = new FastStringBuilder(RTLSupport.DefaultBufferSize);
 
+        protected override void Awake()
+        {
+            base.Awake();
+
+            if (string.IsNullOrEmpty(originalText))
+            {
+                originalText = base.text ?? "";
+            }
+        }
+
         protected void Update()
         {
             if (havePropertiesChanged)
